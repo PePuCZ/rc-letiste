@@ -35,6 +35,7 @@ Zadání a podklady z HA jsou jen lokálně na PC POHODA (`ZADANI.md`, `podklady
 node tools/server.mjs          # http://localhost:8080
 node tools/test-iphone.mjs .   # snímky v emulovaném iPhonu (server musí běžet)
 node tools/gen-ikony.mjs       # nové ikony po změně motivu
+python tools/gen-qr.py         # QR kód s odkazem: ikony/qr-rc-letiste.png (pip install segno pillow)
 ```
 
 Na iPhonu funguje poloha, offline i „Přidat na plochu“ jen přes HTTPS, tedy až po nasazení.
