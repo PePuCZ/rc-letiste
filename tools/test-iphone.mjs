@@ -1,5 +1,6 @@
 // RC Letiště – kontrola v emulovaném iPhonu (Chrome bez okna přes DevTools protokol, bez knihoven).
 // Spuštění (server musí běžet: node tools/server.mjs): node tools/test-iphone.mjs [výstupní složka]
+// Nasazená verze: URL_APP=https://pepucz.github.io/rc-letiste/ node tools/test-iphone.mjs [výstupní složka]
 // Udělá snímky obrazovky (výchozí stav, po švihnutí doleva, otevřený seznam letišť, tmavý režim) a vypíše
 // chyby z konzole a případné vodorovné přetečení stránky.
 
@@ -9,7 +10,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 const CHROME = 'C:/Program Files/Google/Chrome/Application/chrome.exe';
-const URL_APP = 'http://localhost:8080/';
+const URL_APP = process.env.URL_APP || 'http://localhost:8080/';
 const VYSTUP = process.argv[2] || '.';
 const PORT = 9333;
 
