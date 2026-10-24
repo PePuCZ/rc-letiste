@@ -1,0 +1,8 @@
+# RC Letiště – soubory, které nepatří do gitu
+# Repozitář je veřejný (GitHub Pages) – interní podklady zůstávají jen na disku POHODA:
+#   ZADANI.md (adresy HA, odkazy na konverzace), podklady/ (karta a balíček HA), spouštěcí skript relace
+ZADANI.md
+podklady/
+tools/spustit-letiste.ps1
+node_modules/
+*.log

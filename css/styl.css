@@ -1,0 +1,165 @@
+/* RC Letiště – vzhled aplikace (převzato z karty HA letiste-card.js a upraveno na celou obrazovku iPhonu).
+   Barvy jsou proměnné na :root: světlý režim výchozí, tmavý podle nastavení telefonu (prefers-color-scheme).
+   Hodnocení: zelená #639922 / oranžová #eda100 / červená #e24b4a, vítr modrá #3a7bd5.
+   Okraje: env(safe-area-inset-*) kvůli výřezu displeje a domovské liště. */
+
+:root {
+  --ok: #639922; --warn: #eda100; --bad: #e24b4a; --wind: #3a7bd5;
+  --pozadi: #f4f5f2;        /* pozadí stránky */
+  --karta: #ffffff;         /* pozadí panelů a nákresu */
+  --text: #1c1f1a;          /* hlavní text */
+  --text2: #61675d;         /* vedlejší text */
+  --cara: #d5d9d0;          /* oddělovače a rámečky */
+  --warnText: #a66f00;      /* oranžový text (na světlém pozadí tmavší kvůli čitelnosti) */
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --pozadi: #111311; --karta: #1c1f1c; --text: #e8ebe5; --text2: #9ca397; --cara: #3a3f39; --warnText: #eda100;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--pozadi); color: var(--text);
+  font: 15px/1.4 -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+  padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  -webkit-tap-highlight-color: transparent;
+}
+[hidden] { display: none !important; }
+a { color: var(--wind); }
+button { font: inherit; color: inherit; cursor: pointer; }
+
+/* ===== Horní lišta ===== */
+.lista {
+  position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 8px;
+  padding: calc(env(safe-area-inset-top) + 8px) 16px 8px; background: var(--pozadi);
+  border-bottom: 1px solid var(--cara);
+}
+.lista h1 { font-size: 18px; margin: 0; }
+.lista .stav { margin-left: auto; font-size: 12px; color: var(--text2); text-align: right; }
+.lista .stav.stare { color: var(--warnText); }
+.ikbtn { border: 1px solid var(--cara); background: var(--karta); border-radius: 50%; width: 36px; height: 36px; font-size: 18px; line-height: 1; padding: 0; flex: none; }
+.ikbtn.toci { animation: toceni 1s linear infinite; }
+@keyframes toceni { to { transform: rotate(360deg); } }
+
+/* ===== Obsah ===== */
+.lc { padding: 12px 16px 24px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; max-width: 760px; margin: 0 auto; }
+.lc > * { min-width: 0; }
+.lc .main { display: grid; grid-template-columns: 220px 1fr; gap: 16px; align-items: center; touch-action: pan-y; background: var(--karta); border-radius: 16px; padding: 12px; }
+@media (max-width: 520px) { .lc .main { grid-template-columns: 1fr; justify-items: center; } .lc .main > div { width: 100%; } }
+.lc .dial { width: min(78vw, 280px); max-width: 100%; aspect-ratio: 1; }
+@media (min-width: 521px) { .lc .dial { width: 220px; } }
+.lc .pill { display: inline-block; font-weight: 600; font-size: 17px; border-radius: 16px; padding: 4px 14px; color: #fff; background: #888; }
+.lc dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 8px 0 0; font-variant-numeric: tabular-nums; }
+.lc dt { color: var(--text2); } .lc dd { margin: 0; font-weight: 600; }
+.lc .note { font-size: 11px; color: var(--text2); }
+.lc .warn { font-size: 12px; color: var(--warnText); margin-top: 6px; }
+.lc .slw { color: var(--warnText); }
+.lc svg text { font-family: -apple-system, system-ui, sans-serif; }
+.lc .chart { width: 100%; height: auto; display: block; }
+.lc h2.h { font-size: 15px; font-weight: 600; margin: 0 0 6px; }
+
+/* výběr letiště */
+.lc .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.lc .chip { border: 1px solid var(--cara); background: var(--karta); border-radius: 18px; padding: 7px 14px; }
+.lc .chip.on { background: var(--ok); border-color: var(--ok); color: #fff; }
+.lc .menu { border: 1px solid var(--cara); background: var(--karta); border-radius: 12px; padding: 8px; display: grid; gap: 6px; }
+.lc .menu .mh { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 12px; color: var(--text2); }
+.lc .menu ul { list-style: none; margin: 0; padding: 0; max-height: 55vh; overflow-y: auto; overscroll-behavior: contain; }
+.lc .menu li { display: flex; align-items: center; gap: 6px; border-top: 1px solid var(--cara); }
+.lc .menu li:first-child { border-top: 0; }
+.lc .menu li.prazdne { padding: 8px; color: var(--text2); }
+.lc .menu .hv { border: 0; background: transparent; font-size: 22px; line-height: 1; padding: 6px; color: var(--text2); }
+.lc .menu .hv.on { color: #e3a400; }
+.lc .menu .vy { flex: 1; display: flex; justify-content: space-between; gap: 8px; border: 0; background: transparent; text-align: left; padding: 10px 4px; min-width: 0; }
+.lc .menu .vy.on { font-weight: 600; color: var(--ok); }
+.lc .menu .vy small { color: var(--text2); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.lc .menu .ii { border: 0; background: transparent; color: var(--text2); font-size: 18px; padding: 6px; }
+.lc dd .let { border: 0; background: transparent; color: var(--text2); font-size: 18px; line-height: 1; padding: 0 4px; vertical-align: -1px; }
+
+/* společné: segmentový přepínač a malé tlačítko „Zavřít“ */
+.lc .seg { display: inline-flex; border: 1px solid var(--cara); border-radius: 14px; overflow: hidden; }
+.lc .seg button { border: 0; background: transparent; font-size: 13px; padding: 5px 11px; }
+.lc .seg button.on { background: var(--ok); color: #fff; }
+.lc .x, .lc .zpet { margin-left: auto; border: 1px solid var(--cara); background: transparent; border-radius: 14px; padding: 3px 10px; font-size: 12px; }
+.lc .zpet { margin-left: 0; }
+
+/* zdroj předpovědi */
+.lc .zdroj { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 12px; color: var(--text2); }
+
+/* detail letiště */
+.lc .info { border: 1px solid var(--cara); background: var(--karta); border-radius: 12px; padding: 10px 12px; display: grid; gap: 8px; }
+.lc .info .ih { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.lc .info .ih b { font-size: 16px; }
+.lc .info .ih small, .lc .info .p { color: var(--text2); }
+.lc .info .p { font-size: 12px; }
+.lc .info .nav { display: flex; gap: 8px; flex-wrap: wrap; }
+.lc .info .nav a { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; border-radius: 10px; padding: 9px 12px; font-weight: 600; font-size: 13px; border: 1px solid var(--cara); color: var(--text); }
+.lc .info .nav a.hl { background: var(--ok); border-color: var(--ok); color: #fff; }
+.lc .info .kon { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 13px; overflow-wrap: anywhere; }
+.lc .info .kon span { color: var(--text2); }
+
+/* vybraná hodina */
+.lc .kdy { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 6px; font-size: 12px; color: var(--text2); }
+.lc .kdy b { color: var(--text); }
+
+/* tabulka předpovědi */
+.lc .tbl { max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; touch-action: pan-x pan-y; }
+.lc table { border-collapse: separate; border-spacing: 2px; font-variant-numeric: tabular-nums; width: 100%; }
+.lc th { font-size: 10px; font-weight: 500; color: var(--text2); }
+.lc th.d { text-align: left; white-space: nowrap; padding-right: 4px; font-size: 12px; color: var(--text); position: sticky; left: 0; z-index: 1; background: var(--pozadi); }
+.lc th.d small { display: block; font-weight: 400; font-size: 10px; color: var(--text2); }
+.lc th.d .den { display: flex; align-items: center; gap: 4px; border: 0; background: transparent; padding: 0; text-align: left; }
+.lc th.d .den svg { width: 26px; height: 26px; flex: none; }
+.lc th.d .den.on { outline: 2px solid var(--text); outline-offset: 1px; border-radius: 6px; }
+.lc td button { width: 100%; min-width: 26px; height: 32px; border: 0; border-radius: 5px; color: #fff; font: 600 11px/1 -apple-system, system-ui, sans-serif; padding: 0; }
+.lc td button.sel { outline: 2px solid var(--text); outline-offset: 1px; }
+.lc .det { font-size: 12px; color: var(--text2); margin-top: 6px; }
+
+/* detail počasí dne */
+.lc .wxd { border: 1px solid var(--cara); background: var(--karta); border-radius: 12px; padding: 10px 12px; margin-top: 8px; display: grid; gap: 8px; }
+.lc .wxd .hl { display: flex; align-items: center; gap: 10px; }
+.lc .wxd .hl svg { width: 44px; height: 44px; flex: none; }
+.lc .wxd .sum { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; font-size: 13px; font-variant-numeric: tabular-nums; }
+.lc .wxd .sum span:nth-child(odd) { color: var(--text2); }
+.lc .wxd .hrs { display: flex; gap: 4px; overflow-x: auto; overscroll-behavior-x: contain; padding-bottom: 2px; }
+.lc .wxd .hrs div { flex: none; width: 42px; text-align: center; font-size: 11px; font-variant-numeric: tabular-nums; color: var(--text2); }
+.lc .wxd .hrs div b { display: block; color: var(--text); font-size: 12px; }
+.lc .wxd .hrs .pp { color: var(--wind); }
+.lc .wxd .hrs svg { width: 30px; height: 30px; display: block; margin: 0 auto; }
+
+/* meteoradar */
+.lc .radbtn { width: 100%; display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--cara); background: var(--karta); border-radius: 12px; padding: 10px 12px; font-weight: 600; }
+.lc .radin { display: grid; gap: 6px; margin-top: 6px; }
+.lc .radmap { position: relative; width: 100%; aspect-ratio: 384/320; overflow: hidden; border-radius: 10px; background: #cfd6c8; }
+.lc .radmap .vnitr { position: absolute; left: 0; top: 0; width: 384px; height: 320px; transform-origin: 0 0; }
+.lc .radmap .vnitr img { position: absolute; max-width: none; user-select: none; pointer-events: none; }
+.lc .radmap .podklad.tma { filter: invert(1) hue-rotate(180deg) brightness(.85) contrast(.9); }
+.lc .radmap .bod { position: absolute; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px #0006; }
+.lc .radmap .jm { position: absolute; font-size: 12px; font-weight: 600; color: #111; background: #ffffffcc; border-radius: 4px; padding: 0 4px; transform: translate(8px, -8px); white-space: nowrap; }
+.lc .radmap .kruh { position: absolute; border: 1px dashed #0008; border-radius: 50%; }
+.lc .radmap .atrib { position: absolute; right: 4px; bottom: 2px; font-size: 9px; color: #333; background: #fffc; padding: 0 3px; border-radius: 3px; }
+.lc .radctl { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 12px; color: var(--text2); }
+.lc .radctl button { border: 1px solid var(--cara); background: transparent; border-radius: 14px; padding: 4px 10px; font-size: 12px; }
+.lc .radctl button.on { background: var(--ok); border-color: var(--ok); color: #fff; }
+.lc .radctl input[type=range] { flex: 1 1 120px; min-width: 0; }
+.lc .radctl b { color: var(--text); font-variant-numeric: tabular-nums; }
+.lc .radleg { display: flex; align-items: center; gap: 6px; font-size: 11px; }
+.lc .radleg i { flex: 0 1 160px; width: 120px; height: 8px; border-radius: 4px; background: linear-gradient(90deg, #3a3aff, #00b4ff, #00d200, #ffff00, #ff9600, #ff0000, #c800c8); }
+
+/* patička s atribucí zdrojů (podmínka licencí CC BY) */
+.lc .atribuce { text-align: center; }
+
+/* ===== Nastavení (dialog) ===== */
+.nast { border: 0; border-radius: 16px; padding: 0; background: var(--karta); color: var(--text); width: min(92vw, 420px); }
+.nast::backdrop { background: #0008; }
+.nastin { padding: 16px; display: grid; gap: 12px; }
+.nastin h2 { margin: 0; font-size: 17px; }
+.nastin label { display: flex; align-items: center; gap: 8px; justify-content: space-between; font-size: 14px; }
+.nastin input { width: 72px; font: inherit; font-size: 16px; padding: 6px 8px; border: 1px solid var(--cara); border-radius: 8px; background: var(--pozadi); color: var(--text); text-align: right; }
+.nastin .note { font-size: 12px; color: var(--text2); }
+.nastin .tlac { display: flex; gap: 8px; justify-content: space-between; }
+.nastin .tlac button { border: 1px solid var(--cara); background: transparent; border-radius: 12px; padding: 8px 14px; }
+.nastin .tlac .zavrit { background: var(--ok); border-color: var(--ok); color: #fff; font-weight: 600; }

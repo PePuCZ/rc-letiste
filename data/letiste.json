@@ -1,0 +1,516 @@
+[
+ {
+  "id": "5ade73",
+  "nazev": "Babice u Netolic",
+  "lat": 49.024432,
+  "lon": 14.214292,
+  "rwy": 100,
+  "jistota": "nízká",
+  "popis": "Babice u Netolic - LMK Babice; směr dráhy: obrys OSM, ze satelitu nejasné",
+  "tel": [
+   "602 123 227"
+  ],
+  "email": [
+   "lmk-babice@seznam.cz"
+  ],
+  "webs": [
+   "http://www.lmk-babice.cz"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "3b0860",
+  "nazev": "Chotěboř",
+  "lat": 49.6863,
+  "lon": 15.6772,
+  "rwy": 169,
+  "jistota": "střední",
+  "popis": "Chotěboř LMK; směr dráhy: travnatý pruh na letišti",
+  "tel": [
+   "721 237 339"
+  ],
+  "email": [
+   "pesramek@tiscali.cz",
+   "pklusacek@gmail.com"
+  ],
+  "webs": [
+   "https://www.lmkchotebor.cz/"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "644667",
+  "nazev": "Heřmanův Městec – Doubrava",
+  "lat": 49.960083,
+  "lon": 15.69927,
+  "rwy": 36,
+  "jistota": "nízká",
+  "popis": "Heřmanův Městec - Doubrava; směr dráhy: podle pole u silnice",
+  "tel": [],
+  "email": [],
+  "webs": [],
+  "kamera": []
+ },
+ {
+  "id": "141324",
+  "nazev": "Hořice",
+  "lat": 50.360727,
+  "lon": 15.579545,
+  "rwy": 85,
+  "jistota": "nízká",
+  "popis": "Hořice; směr dráhy: ze satelitu nejasné",
+  "tel": [],
+  "email": [
+   "petr.dusek@atlas.cz"
+  ],
+  "webs": [
+   "http://www.lmkhorice.cz"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "6de7af",
+  "nazev": "Jiřice u Humpolce",
+  "lat": 49.553337,
+  "lon": 15.333953,
+  "rwy": 170,
+  "jistota": "nízká",
+  "popis": "Jiřice; směr dráhy: ze satelitu nejasné",
+  "tel": [],
+  "email": [
+   "waclaw@gmail.com"
+  ],
+  "webs": [
+   "http://www.lmkjirice.cz"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "a23db8",
+  "nazev": "Jiřice – RC Jalovčí",
+  "lat": 50.239982,
+  "lon": 14.82823,
+  "rwy": 72,
+  "jistota": "střední",
+  "popis": "Milovice - RC Jalovčí; směr dráhy: posekaný pruh ~125×27 m (RCMapy: Milovice – RC Jalovčí)",
+  "tel": [],
+  "email": [],
+  "webs": [],
+  "kamera": []
+ },
+ {
+  "id": "2fe821",
+  "nazev": "Kardašova Řečice – Pleše",
+  "lat": 49.183415,
+  "lon": 14.803004,
+  "rwy": 56,
+  "jistota": "střední",
+  "popis": "Kardašova Řečice - Pleše; směr dráhy: posekaná plocha, OSM 05/23",
+  "tel": [],
+  "email": [],
+  "webs": [
+   "http://www.modelklub.eu",
+   "https://www.facebook.com/Model-klub-Kardašova-Řečice-os-94665176024",
+   "https://www.modelklub.eu/aktualne/"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "9f87d1",
+  "nazev": "Kněžmost – Koprník",
+  "lat": 50.478317,
+  "lon": 15.006208,
+  "rwy": 107,
+  "jistota": "dobrá",
+  "popis": "Kněžmost - Koprník; směr dráhy: travnatý pruh ze satelitu",
+  "tel": [
+   "603 822 869",
+   "604 205 352",
+   "606 154 976",
+   "724 349 193"
+  ],
+  "email": [
+   "lukas.seliga@email.cz",
+   "masekvladimir@email.cz",
+   "mdolak@volny.cz",
+   "michalvirak@email.cz"
+  ],
+  "webs": [
+   "http://www.mkvesela.estranky.cz"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "950b86",
+  "nazev": "Kutná Hora – Miskovice",
+  "lat": 49.93858,
+  "lon": 15.216708,
+  "rwy": 80,
+  "jistota": "nízká",
+  "popis": "Kutná Hora - Miskovice; směr dráhy: okraj posekané plochy",
+  "tel": [],
+  "email": [],
+  "webs": [
+   "http://www.rc-marketa.cz"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "39a7b4",
+  "nazev": "Lipence",
+  "lat": 49.9828,
+  "lon": 14.376769,
+  "rwy": 80,
+  "jistota": "střední",
+  "popis": "Praha - Lipence; směr dráhy: pruh ~078° ze satelitu, dříve odhad 077–091°",
+  "tel": [
+   "603 253 155"
+  ],
+  "email": [
+   "pavel@lanc.cz"
+  ],
+  "webs": [
+   "http://www.mklipence.cz",
+   "https://www.facebook.com/mklipence"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "695a81",
+  "nazev": "Mladá Boleslav",
+  "lat": 50.398369,
+  "lon": 14.898169,
+  "rwy": 55,
+  "jistota": "nízká",
+  "popis": "Mladá Boleslav; směr dráhy: stopy na letišti ze satelitu",
+  "tel": [
+   "+420 606 608 530"
+  ],
+  "email": [
+   "akmb@akmb.cz"
+  ],
+  "webs": [
+   "http://www.akmb.cz"
+  ],
+  "kamera": [
+   "http://www.akmb.cz/wp-content/webcam/webcamcerpackalarge.jpg?1791307444",
+   "http://www.akmb.cz/wp-content/webcam/webcamcerpackalarge.jpg?1791307445"
+  ]
+ },
+ {
+  "id": "aac8ae",
+  "nazev": "Mníšek – Modelranch",
+  "lat": 50.842113,
+  "lon": 15.033857,
+  "rwy": 19,
+  "jistota": "nízká",
+  "popis": "Mníšek - Modelranch; směr dráhy: slabá stopa v trávě",
+  "tel": [],
+  "email": [
+   "info@modelranch.cz\\"
+  ],
+  "webs": [
+   "http://www.modelranch.cz"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "1666ce",
+  "nazev": "Modlany – Suché",
+  "lat": 50.628551,
+  "lon": 13.921512,
+  "rwy": 102,
+  "jistota": "dobrá",
+  "popis": "Modlany - Suché; směr dráhy: asfaltová dráha, OSM 10/28",
+  "tel": [
+   "+420 602445717",
+   "+420 605558533",
+   "+420 606509359"
+  ],
+  "email": [],
+  "webs": [
+   "http://www.mk-severka.cz",
+   "https://www.facebook.com/Modelpark-Suché-125846964119424/",
+   "https://www.mkchlumec.cz/"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "bf98da",
+  "nazev": "Mýto – Kařízek",
+  "lat": 49.797817,
+  "lon": 13.761942,
+  "rwy": 74,
+  "jistota": "dobrá",
+  "popis": "Mýto - Kařízek; směr dráhy: asfaltová dráha, OSM 07/25",
+  "tel": [
+   "725491917"
+  ],
+  "email": [
+   "amgmyto@seznam.cz",
+   "kleinhampl.j@seznam.cz"
+  ],
+  "webs": [
+   "http://www.amgmyto.cz"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "4db19b",
+  "nazev": "Mělník – Modelklub",
+  "lat": 50.3302,
+  "lon": 14.5564,
+  "rwy": 122,
+  "jistota": "nízká",
+  "popis": "Mělník Modelklub; směr dráhy: ze satelitu nejasné",
+  "tel": [],
+  "email": [],
+  "webs": [
+   "https://www.facebook.com/Modelklub-Mělník-160561663994695/",
+   "https://www.modelklub-melnik.cz/"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "44c876",
+  "nazev": "Mělník – RC Klub",
+  "lat": 50.386838,
+  "lon": 14.498147,
+  "rwy": 110,
+  "jistota": "střední",
+  "popis": "RC Klub Mělník; směr dráhy: posekaný obdélník ze satelitu",
+  "tel": [
+   "+420 602 317 902"
+  ],
+  "email": [],
+  "webs": [
+   "http://www.rck-melnik.cz"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "86ce9a",
+  "nazev": "Nesvačily",
+  "lat": 49.74369,
+  "lon": 14.64464,
+  "rwy": 78,
+  "jistota": "střední",
+  "popis": "Modelářské letiště Nesvačily; směr dráhy: posekaný obdélník, OSM 07/25",
+  "tel": [],
+  "email": [
+   "hadac@minfo.cz"
+  ],
+  "webs": [
+   "http://www.minfo.cz/nesvacily/"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "b669f6",
+  "nazev": "Podhořany",
+  "lat": 49.941673,
+  "lon": 15.552824,
+  "rwy": 142,
+  "jistota": "nízká",
+  "popis": "Podhořany - letiště; směr dráhy: podle pole a cesty, nejasné",
+  "tel": [],
+  "email": [],
+  "webs": [],
+  "kamera": []
+ },
+ {
+  "id": "podola",
+  "nazev": "Podolanka",
+  "lat": 50.17,
+  "lon": 14.600389,
+  "rwy": 70,
+  "jistota": "dobrá",
+  "popis": "u Kapličky u Podolanky, Podolanka-Jenštejn; dráha 07/25 ze satelitu",
+  "tel": [],
+  "email": [],
+  "webs": [],
+  "kamera": []
+ },
+ {
+  "id": "dcbe9d",
+  "nazev": "Přeštice",
+  "lat": 49.570524,
+  "lon": 13.340954,
+  "rwy": 128,
+  "jistota": "nízká",
+  "popis": "Přeštice; směr dráhy: ze satelitu nejasné",
+  "tel": [],
+  "email": [],
+  "webs": [],
+  "kamera": []
+ },
+ {
+  "id": "d0464e",
+  "nazev": "Rakovník",
+  "lat": 50.095383,
+  "lon": 13.688149,
+  "rwy": 90,
+  "jistota": "dobrá",
+  "popis": "Rakovník - letiště; směr dráhy: asfaltová plocha ze satelitu",
+  "tel": [
+   "602 297 274"
+  ],
+  "email": [],
+  "webs": [
+   "http://www.lmk-rakovnik.cz"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "03ce30",
+  "nazev": "Rokycany",
+  "lat": 49.750384,
+  "lon": 13.591032,
+  "rwy": 100,
+  "jistota": "nízká",
+  "popis": "Rokycany; směr dráhy: plocha na letišti, nejasné",
+  "tel": [],
+  "email": [],
+  "webs": [
+   "https://maps.app.goo.gl/hCoesVhzrfpH8dfa7"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "73e521",
+  "nazev": "Rokytnice nad Rokytnou",
+  "lat": 49.186185,
+  "lon": 15.756454,
+  "rwy": 133,
+  "jistota": "střední",
+  "popis": "LMK Rokytnice nad Rokytnou; směr dráhy: pruh mezi poli, MADB 150×50 m",
+  "tel": [
+   "603 262 162"
+  ],
+  "email": [
+   "info@lmk-rokytnice.cz"
+  ],
+  "webs": [
+   "http://lmk-rokytnice.cz",
+   "https://youtu.be/SDhAce7vc0w",
+   "http://www.rc-pilot.eu"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "fed325",
+  "nazev": "Roudnice",
+  "lat": 50.410562,
+  "lon": 14.226371,
+  "rwy": 121,
+  "jistota": "střední",
+  "popis": "Roudnice - letiště; směr dráhy: pás letiště ze satelitu",
+  "tel": [],
+  "email": [],
+  "webs": [],
+  "kamera": []
+ },
+ {
+  "id": "f00fc6",
+  "nazev": "Starý Vestec",
+  "lat": 50.152077,
+  "lon": 14.861437,
+  "rwy": 102,
+  "jistota": "dobrá",
+  "popis": "RC Letiště Starý Vestec; směr dráhy: posekaný pruh u cesty, OSM 10/28",
+  "tel": [],
+  "email": [],
+  "webs": [],
+  "kamera": []
+ },
+ {
+  "id": "20a917",
+  "nazev": "Trhové Sviny – RCGang",
+  "lat": 48.854339,
+  "lon": 14.648767,
+  "rwy": 165,
+  "jistota": "nízká",
+  "popis": "Trhové Sviny - RCGang; směr dráhy: světlejší pruh, nejasné",
+  "tel": [],
+  "email": [],
+  "webs": [],
+  "kamera": []
+ },
+ {
+  "id": "420f33",
+  "nazev": "Vysoké Mýto",
+  "lat": 49.95318,
+  "lon": 16.10724,
+  "rwy": 167,
+  "jistota": "střední",
+  "popis": "Vysoké Mýto; směr dráhy: travnatá dráha letiště",
+  "tel": [],
+  "email": [
+   "rcteam@seznam.cz"
+  ],
+  "webs": [
+   "http://www.rcteam.cz"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "31418b",
+  "nazev": "Úvaly",
+  "lat": 50.04912,
+  "lon": 14.710725,
+  "rwy": 105,
+  "jistota": "nízká",
+  "popis": "Letiště LMK Úvaly; směr dráhy: ze satelitu nejasné",
+  "tel": [],
+  "email": [],
+  "webs": [],
+  "kamera": []
+ },
+ {
+  "id": "75945f",
+  "nazev": "Černolice",
+  "lat": 49.907208,
+  "lon": 14.300637,
+  "rwy": 48,
+  "jistota": "střední",
+  "popis": "Černolice; směr dráhy: satelit + obrys OSM 05/23",
+  "tel": [],
+  "email": [],
+  "webs": [
+   "http://www.modelarskyklubwinkhaus.estranky.cz"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "a49c14",
+  "nazev": "Česká Skalice – Zájezd",
+  "lat": 50.394211,
+  "lon": 16.019096,
+  "rwy": 80,
+  "jistota": "nízká",
+  "popis": "Česká Skalice - Zájezd; směr dráhy: tvar posekané plochy",
+  "tel": [
+   "603 833 078"
+  ],
+  "email": [],
+  "webs": [
+   "http://www.BalharRC.cz"
+  ],
+  "kamera": []
+ },
+ {
+  "id": "6dabca",
+  "nazev": "Žamberk",
+  "lat": 50.083721,
+  "lon": 16.444086,
+  "rwy": 118,
+  "jistota": "střední",
+  "popis": "Žamberk; směr dráhy: travnatá dráha letiště",
+  "tel": [],
+  "email": [],
+  "webs": [
+   "http://www.modelar.zamberk.cz"
+  ],
+  "kamera": []
+ }
+]

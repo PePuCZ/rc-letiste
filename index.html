@@ -1,0 +1,102 @@
+<!doctype html>
+<!--
+  RC Letiště – webová aplikace (PWA) pro iPhone: jestli a kterým směrem se dá na modelářském letišti létat.
+  Kostra stránky; obsah kreslí js/app.js (moduly ES, bez sestavování). Styl: css/styl.css.
+  Instalace na iPhonu: Safari → Sdílet → Přidat na plochu. Offline běh zajišťuje sw.js.
+-->
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <!-- viewport-fit=cover: obsah až pod výřez a domovskou lištu, okraje řeší env(safe-area-inset-*) v CSS -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>RC Letiště</title>
+  <meta name="description" content="Vítr na dráze modelářského letiště: směr startu, vítr po dráze a bokem, předpověď na 7 dní.">
+  <!-- vzhled samostatné aplikace na iOS (po přidání na plochu) -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="RC Letiště">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#f4f5f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111311" media="(prefers-color-scheme: dark)">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="ikony/ikona.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="ikony/ikona-180.png">
+  <link rel="stylesheet" href="css/styl.css">
+</head>
+<body>
+  <!-- horní lišta: název, stav dat (čas stažení / offline), obnovit, nastavení -->
+  <header class="lista">
+    <h1>RC Letiště</h1>
+    <span class="stav" aria-live="polite"></span>
+    <button type="button" class="ikbtn obnovit" aria-label="Obnovit data">⟳</button>
+    <button type="button" class="ikbtn nastbtn" aria-label="Nastavení">⚙</button>
+  </header>
+
+  <main class="lc">
+    <!-- výběr letiště: oblíbená jako tlačítka, rozbalovací seznam všech, detail letiště -->
+    <div class="chips"></div>
+    <div class="menu" hidden></div>
+    <div class="info" hidden></div>
+
+    <!-- nákres a údaje; švihnutím do stran se mění vybraná hodina -->
+    <section class="main">
+      <svg class="dial" viewBox="0 0 200 200" role="img" aria-label="Nákres dráhy a větru"></svg>
+      <div>
+        <span class="pill">–</span>
+        <div class="kdy"></div>
+        <dl class="udaje"></dl>
+        <div class="warn" hidden>Směr dráhy je odhad – potvrdit na místě.</div>
+      </div>
+    </section>
+
+    <!-- zdroj předpovědi -->
+    <div class="zdroj"></div>
+
+    <!-- výhled na nejbližší hodiny -->
+    <section>
+      <svg class="chart" viewBox="0 0 360 150" role="img" aria-label="Výhled větru a nárazů"></svg>
+      <div class="note">Výhled: sloupce = vítr (barva = hodnocení), čára = nárazy, červená přerušovaná = mez větru (m/s). Open-Meteo po 15 min na 3 h, yr.no a ALADIN po hodinách na 6 h.</div>
+    </section>
+
+    <!-- tabulka na 8 dní -->
+    <section>
+      <h2 class="h">Kdy se dá létat – dnes + 7 dní, od východu do západu slunce</h2>
+      <div class="tbl"><table class="pred"></table></div>
+      <div class="wxd" hidden></div>
+      <div class="det">Číslo = vítr (m/s). Červená: vítr celkem, bokem nebo nárazy nad mezí; oranžová: bokem nad mezí. Klepni na symbol počasí u dne pro detail počasí, na hodinu – nahoře se ukáže na dráze (uplynulé hodiny dnes jsou ztlumené).</div>
+    </section>
+
+    <!-- meteoradar ČHMÚ (stahuje se až po rozbalení) -->
+    <section class="rad">
+      <button type="button" class="radbtn"><span>Meteoradar ČHMÚ</span><span class="radsip">▾</span></button>
+      <div class="radin" hidden>
+        <div class="radmap"><div class="vnitr"></div></div>
+        <div class="radctl"><button type="button" class="hraj">▶</button><input type="range" class="radpos" min="0" max="0" value="0" aria-label="Čas radaru"><b class="radcas">–</b></div>
+        <div class="radctl"><button type="button" data-zoom="11">19 km</button><button type="button" data-zoom="10">37 km</button><button type="button" data-zoom="9">75 km</button><button type="button" data-zoom="8">150 km</button><button type="button" data-zoom="6">Celá ČR</button>
+          <span class="radleg">slabé <i></i> silné srážky</span></div>
+      </div>
+    </section>
+
+    <footer class="note atribuce">
+      Předpověď: <a href="https://api.met.no/" target="_blank" rel="noopener">MET Norway</a> (CC BY 4.0),
+      <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> (CC BY 4.0), model ALADIN © ČHMÚ.
+      Radar © ČHMÚ, mapa © OpenStreetMap.
+    </footer>
+  </main>
+
+  <!-- nastavení mezí hodnocení (m/s) -->
+  <dialog class="nast">
+    <div class="nastin">
+      <h2>Meze hodnocení</h2>
+      <label>Bokem – oranžová (Pozor) od <input type="number" inputmode="decimal" step="0.5" min="0.5" max="15" data-m="o"> m/s</label>
+      <label>Bokem – červená (Nelétat) od <input type="number" inputmode="decimal" step="0.5" min="0.5" max="20" data-m="r"> m/s</label>
+      <label>Vítr celkem – červená od <input type="number" inputmode="decimal" step="0.5" min="0.5" max="20" data-m="v"> m/s</label>
+      <label>Nárazy – červená nad <input type="number" inputmode="decimal" step="0.5" min="0.5" max="30" data-m="g"> m/s</label>
+      <div class="note">Uloží se jen v tomto telefonu.</div>
+      <div class="tlac"><button type="button" class="vychozi">Výchozí (3 / 5 / 4 / 8)</button><button type="button" class="zavrit">Hotovo</button></div>
+    </div>
+  </dialog>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
